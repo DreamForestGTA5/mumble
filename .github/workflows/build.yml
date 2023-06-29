@@ -88,6 +88,12 @@ jobs:
       env:
           MUMBLE_BUILD_NUMBER: ${{ needs.fetch_build_number.outputs.build_number }}
 
+    - name: Upload
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: CYourControls
+        path: "${{ github.workspace }}/build"
+
     - name: Test
       working-directory: ${{ github.workspace }}/build
       shell: bash
